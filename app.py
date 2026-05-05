@@ -1,3 +1,4 @@
+#Main app for magic the gathering arena player count endpoint.
 import os
 import time
 import logging
