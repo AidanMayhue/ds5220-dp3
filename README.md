@@ -1,5 +1,7 @@
 # ds5220-dp3
 
+https://eqm4hheif3.execute-api.us-east-1.amazonaws.com/api/
+
 # data source
 
 This project is an ingestion pipeline via a chalice API. The pipeline is tracking data from the Steam API, more specifically, the player count for the video game Magic the Gathering Arena. I am a fan of the card game and often play the video game when there aren't others around to play. I enjoy experimenting with the deckbuilding mechanics, however the game has adopted a model where it encourages you to play daily in short bursts. I was curious how this would impact player count. For example whether or not it would drastically fluctuate due to overall shorter sessions. 
