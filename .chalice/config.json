@@ -1,0 +1,38 @@
+
+{
+  "version": "2.0",
+  "app_name": "steam-player-counts",
+  "stages": {
+    "dev": {
+      "api_gateway_stage": "api",
+      "autogen_policy": false,
+      "iam_policy_file": "policy-dev.json",
+      "layers": [
+  "arn:aws:lambda:us-east-1:302263072439:layer:matplotlib-python311:3"
+],
+      "environment_variables": {
+        "TABLE_NAME": "steam-player-counts",
+        "BUCKET_NAME": "dp3-steam-plots",
+        "PLOT_PREFIX": "dp3/steam/",
+        "WINDOW_HOURS": "24",
+        "STEAM_GAMES_LIST": "MTGArena"
+      },
+      "lambda_functions": {
+        "ingest": {
+          "handler": "ingest.handler.handler",
+          "lambda_timeout": 60,
+          "environment_variables": {
+            "TABLE_NAME": "steam-player-counts",
+            "STEAM_GAMES": "MTGArena:2141910"
+          },
+          "scheduled_events": [
+            {
+              "schedule_expression": "rate(15 minutes)",
+              "name": "steam-ingest-schedule"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
